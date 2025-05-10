@@ -1,24 +1,13 @@
+import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
-import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import { Area } from '@/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: markerIcon2x,
-  iconUrl: markerIcon,
-  shadowUrl: markerShadow,
-});
 
 interface AreaCardProps {
   area: Area;
 }
 
-// Define coordinates for each area
 const areaCoordinates: Record<string, [number, number]> = {
   behala: [22.5013, 88.3081],
   'north-kolkata': [22.6033, 88.3778],
@@ -54,3 +43,4 @@ export default function AreaCard({ area }: AreaCardProps) {
     </Card>
   );
 }
+
